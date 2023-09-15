@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -10,6 +11,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^3.1.0"
+    "@ark-ui/react": "^0.15.0",
+    "@astrojs/react": "^3.0.2",
+    "@park-ui/presets": "^0.12.0",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "astro": "^3.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@pandacss/astro": "^0.15.0",
+    "@pandacss/dev": "^0.15.0",
+    "bun-types": "^1.0.1"
   }
 }
