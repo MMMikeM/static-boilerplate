@@ -1,26 +1,17 @@
 ---
+import Accordion from "~/components/Accordion";
 import Layout from "../layouts/Layout.astro";
 import Button from "~/components/Button";
-
-const response = await fetch('https://randomuser.me/api/');
-const data = await response.json();
-
 ---
 
 
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Button client:load id="alert">Hello</Button>
-    {JSON.stringify(data)}
+    <Accordion client:load />
+    <Button client:load>Click me</Button>
+    <Button variant="secondary">Click me</Button>
+    <Button isDisabled={true} client:load>Disabled</Button>
   </main>
 </Layout>
 
-
-
-<script>
-
-  const button = document.querySelector('button#alert');
-
-  button?.addEventListener('click', () => alert('Hello!'))
-</script>
