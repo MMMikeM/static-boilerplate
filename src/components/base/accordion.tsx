@@ -1,5 +1,5 @@
-import { styled } from "styled-system/jsx";
 import * as Ark from "@ark-ui/react/accordion";
+import { styled } from "styled-system/jsx";
 import { accordion, type AccordionVariantProps } from "styled-system/recipes";
 import { createStyleContext } from "~/lib/create-style-context";
 
