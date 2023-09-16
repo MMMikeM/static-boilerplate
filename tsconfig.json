@@ -5,7 +5,8 @@
     "types": ["bun-types"],
     "jsxImportSource": "react",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@ds/*": ["styled-system/*"]
     }
   },
   "extends": "astro/tsconfigs/strictest"

@@ -1,21 +1,37 @@
-import { defineConfig } from "@pandacss/dev";
+import { defineConfig, defineTokens } from "@pandacss/dev";
+
+const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
+type Color = Record<(typeof shades)[number], { value: string }>;
+
+const colorBuilder = (hue: number, saturation?: number) => {
+  const colorObj: Color = {} as Color;
+  shades.forEach((shade) => {
+    colorObj[shade] = {
+      value: `hsl(${hue}, ${saturation ?? 50}%, ${100 - shade / 10}%)`,
+    };
+  });
+  return colorObj;
+};
+
+const colors = defineTokens.colors({
+  primary: colorBuilder(0),
+  secondary: colorBuilder(200),
+  disabled: colorBuilder(0, 0),
+});
 
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
-  presets: ["@pandacss/dev/presets", "@park-ui/presets"],
+  presets: ["@pandacss/dev/presets"],
   jsxFramework: "react",
-  // Where to look for your css declarations
   include: ["./src/**/*.{astro,tsx}", "./pages/**/*.{astro,tsx}"],
-
-  // Files to exclude
   exclude: [],
-
-  // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        colors: { ...colors },
+      },
+    },
   },
-
-  // The output directory for your css system
   outdir: "styled-system",
 });
