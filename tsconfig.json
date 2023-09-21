@@ -6,7 +6,8 @@
     "jsxImportSource": "react",
     "paths": {
       "~/*": ["./src/*"],
-      "@ds/*": ["styled-system/*"]
+      "@primitives/*": ["styled-system/*"],
+      "@/components/*": ["src/components/*"]
     }
   },
   "extends": "astro/tsconfigs/strictest"

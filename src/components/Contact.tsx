@@ -1,7 +1,10 @@
 import { type FormEvent, useState } from "react";
-import CustomButton from "./Button";
-import { css } from "@ds/css";
-import { Container } from "@ds/jsx";
+import { Container, Stack } from "@primitives/jsx";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+
 export default function Form() {
   const [responseMessage, setResponseMessage] = useState("");
 
@@ -20,52 +23,41 @@ export default function Form() {
 
   return (
     <Container mx={"auto"} maxW={{ base: "lg" }}>
-      <form
-        onSubmit={submit}
-        className={css({ display: "flex", flexDirection: "column", gap: 2 })}
-      >
-        <label
-          htmlFor="name"
-          className={css({ display: "flex", color: "white", gap: 2 })}
-        >
+      <Stack bg="red.100" mb={"4"}>
+        <h1>Contact</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          voluptatum, quibusdam, quia, quos voluptates voluptatem quod
+        </p>
+      </Stack>
+      <form onSubmit={submit}>
+        <Label htmlFor="name">
           Name
-          <input
-            className={css({ ml: "auto", w: "1/2" })}
+          <Input
             type="text"
             id="name"
             name="name"
             autoComplete="name"
             required
           />
-        </label>
-        <label
-          htmlFor="email"
-          className={css({ display: "flex", color: "white", gap: 2 })}
-        >
+        </Label>
+        <Label htmlFor="email">
           Email
-          <input
-            className={css({ ml: "auto", w: "1/2" })}
+          <Input
             type="email"
             id="email"
             name="email"
             autoComplete="email"
             required
           />
-        </label>
-        <label
-          htmlFor="message"
-          className={css({ display: "flex", color: "white", gap: 2 })}
-        >
+        </Label>
+        <Label htmlFor="message">
           Message
-          <textarea
-            className={css({ ml: "auto", w: "1/2" })}
-            id="message"
-            name="message"
-            autoComplete="off"
-            required
-          />
-        </label>
-        <CustomButton variant="primary">Send</CustomButton>
+          <Textarea id="message" name="message" autoComplete="off" required />
+        </Label>
+        <Button fullWidth variant={"destructive"} className="mt-4">
+          Send
+        </Button>
         {responseMessage && <p>{responseMessage}</p>}
       </form>
     </Container>
