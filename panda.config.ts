@@ -6,5 +6,5 @@ export default defineConfig({
   presets: ["@pandacss/dev/presets"],
   jsxFramework: "react",
   include: ["./src/**/*.{astro,tsx}"],
-  outdir: "styled-system",
+  outdir: "src/components/primitives",
 });
