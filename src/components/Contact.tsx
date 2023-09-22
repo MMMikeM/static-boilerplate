@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react"
-import { Container, Stack } from "@primitives/jsx"
+import { Center, Container, Stack } from "@primitives/jsx"
 import { Button } from "./ui/button"
 import { Label } from "./ui/label"
 import { Input } from "./ui/input"
@@ -23,30 +23,43 @@ export default function Form() {
 
   return (
     <Container mx={"auto"} maxW={{ base: "lg" }}>
-      <Stack mb={"4"}>
-        <h1>Contact</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatum, quibusdam,
-          quia, quos voluptates voluptatem quod
-        </p>
-      </Stack>
       <form onSubmit={submit}>
-        <Label htmlFor="name">
-          Name
-          <Input type="text" id="name" name="name" autoComplete="name" required />
-        </Label>
-        <Label htmlFor="email">
-          Email
-          <Input type="email" id="email" name="email" autoComplete="email" required />
-        </Label>
-        <Label htmlFor="message">
-          Message
-          <Textarea id="message" name="message" autoComplete="off" required />
-        </Label>
-        <Button fullWidth variant={"destructive"} className="mt-4">
-          Send
-        </Button>
-        {responseMessage && <p>{responseMessage}</p>}
+        <Stack gap={4} mt={4}>
+          <Label htmlFor="name">
+            Name
+            <Input
+              className="mt-2"
+              type="text"
+              id="name"
+              name="name"
+              autoComplete="name"
+              required
+            />
+          </Label>
+          <Label htmlFor="email">
+            Email
+            <Input
+              className="mt-2"
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              required
+            />
+          </Label>
+          <Label htmlFor="message">
+            Message
+            <Textarea className="mt-1" id="message" name="message" autoComplete="off" required />
+          </Label>
+          <Button fullWidth variant="default">
+            Send
+          </Button>
+          {responseMessage && (
+            <Center>
+              <p>{responseMessage}</p>
+            </Center>
+          )}
+        </Stack>
       </form>
     </Container>
   )
