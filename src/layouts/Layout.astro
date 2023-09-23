@@ -18,6 +18,14 @@ import '../global.css'
 		<title>{title}</title>
 	</head>
 	<body>
+		<header class="flex">
+			<h1>{title}</h1>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/contact">React Form</a>
+				<a href="/contact-static">Static Form</a>
+			</nav>
+		</header>
 		<slot />
 	</body>
 </html>
