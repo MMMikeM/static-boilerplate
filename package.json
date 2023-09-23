@@ -61,8 +61,7 @@
     "@pandacss/dev": "^0.15.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro-icon": "^0.8.1",
-    "bun-types": "^1.0.3"
+    "astro-icon": "^0.8.1"
   },
   "prettier": {
     "printWidth": 100,
