@@ -1,0 +1,63 @@
+---
+import Layout from "@layouts/Layout.astro"
+import { Label } from "@radix-ui/react-label";
+import { Circle, Container, Stack } from "~/components/primitives/jsx";
+import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    const email = data.get("email");
+    const password = data.get("password");
+
+    console.log({ name, email, password })
+
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout title="Welcome to Astro.">
+  <Container mx={"auto"} maxW={{ base: "lg" }}>
+    <Circle className="w-24 h-24 bg-red-500" />
+    <form method="post">
+      <Stack gap={4} mt={4}>
+        <Label htmlFor="name">
+          Name
+          <Input
+            className="mt-2"
+            type="text"
+            id="name"
+            name="name"
+            autoComplete="name"
+            required
+          />
+        </Label>
+        <Label htmlFor="email">
+          Email
+          <Input
+            className="mt-2"
+            type="email"
+            id="email"
+            name="email"
+            autoComplete="email"
+            required
+          />
+        </Label>
+        <Label htmlFor="message">
+          Message
+          <Textarea className="mt-1" id="message" name="message" autoComplete="off" required />
+        </Label>
+        <Button fullWidth variant="default">
+          Send
+        </Button>
+      </Stack>
+    </form>
+  </Container>
+</Layout>
