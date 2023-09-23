@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from "react"
-import { Center, Container, Stack } from "@primitives/jsx"
+import { Center, Circle, Container, Stack } from "@primitives/jsx"
 import { Button } from "./ui/button"
 import { Label } from "./ui/label"
 import { Input } from "./ui/input"
@@ -23,6 +23,7 @@ export default function Form() {
 
   return (
     <Container mx={"auto"} maxW={{ base: "lg" }}>
+      <Circle className="w-24 h-24 bg-red-500" />
       <form onSubmit={submit}>
         <Stack gap={4} mt={4}>
           <Label htmlFor="name">
