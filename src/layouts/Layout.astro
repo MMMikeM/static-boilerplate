@@ -4,7 +4,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import { Button } from '~/components/ui/button';
 import '../global.css'
+import { Container } from '~/components/primitives/jsx';
 ---
 
 <!doctype html>
@@ -18,14 +20,22 @@ import '../global.css'
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="flex">
-			<h1>{title}</h1>
-			<nav>
-				<a href="/">Home</a>
-				<a href="/contact">React Form</a>
-				<a href="/contact-static">Static Form</a>
+		<header class="flex h-10 justify-center items-center px-4">
+			<h1 class="mr-auto font-semibold">{title}</h1>
+			<nav class="flex gap-4">
+				<Button variant="link" asChild>
+					<a href="/">Home</a>
+				</Button>
+				<Button variant="link" asChild>
+					<a href="/contact">React Form</a>
+				</Button>
+				<Button variant="link" asChild>
+					<a href="/contact-static">Static Form</a>
+				</Button>
 			</nav>
 		</header>
-		<slot />
+		<Container mx={"auto"} mt={"4"} maxW={{ base: "lg" }}>
+			<slot />
+		</Container>
 	</body>
 </html>

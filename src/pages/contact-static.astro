@@ -23,8 +23,7 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<Layout title="Welcome to Astro.">
-  <Container mx={"auto"} maxW={{ base: "lg" }}>
+<Layout title=" the Static Form">
     <Circle className="w-24 h-24 bg-red-500" />
     <form method="post">
       <Stack gap={4} mt={4}>
@@ -59,5 +58,4 @@ if (Astro.request.method === "POST") {
         </Button>
       </Stack>
     </form>
-  </Container>
 </Layout>
